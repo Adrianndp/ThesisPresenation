@@ -1,4 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-Functions
+    <h1>Predefined Functions</h1>
+    {% for f in all_functions %}
+        {{ f }}
+    {% endfor %}
 {% endblock %}
