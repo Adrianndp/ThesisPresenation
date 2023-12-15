@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>All Models</h2>
+    {% for m in all_models %}
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ m.name }}</h5>
+                    <p class="card-text">{{ m.description }}</p>
+                    <a class="btn btn-primary" href="/models/{{ m.name }}">See Model</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

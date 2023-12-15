@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-info text-white p-3">
+        <h1>{% block header %}Sample Application{% endblock %}</h1>
+        <!-- Add any common elements in the header -->
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Add your navigation menu or links here -->
+    </nav>
+
+    <main class="container mt-3">
+        {% block content %}{% endblock %}
+        <!-- This is where the content of the child templates will be inserted -->
+    </main>
+
+    <footer class="bg-dark text-white p-3 mt-auto">
+        <!-- Add your footer content or links here -->
+    </footer>
+
+    <!-- Add Bootstrap JavaScript dependencies (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Add Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
