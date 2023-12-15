@@ -18,6 +18,8 @@ def predefined_functions(request):
 
 def model(request, model_name):
     model_of_name = apps.get_model(app_label='main', model_name=model_name)
-    all_fields = model_of_name._meta.fields
-    # todo logic
-    return render(request, 'model.html', {'name': model_name})
+    data = [
+        {"field_name": field.name, "field_type": type(field).__name__}
+        for field in model_of_name._meta.fields
+    ]
+    return render(request, 'model.html', {'model_name': model_name, "data": data})
