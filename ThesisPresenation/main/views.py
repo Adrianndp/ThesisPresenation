@@ -1,6 +1,6 @@
 from django.apps import apps
 from django.shortcuts import render
-from ThesisPresenation.main.logic.predefined_functions import PredefinedFunctions
+from .logic.helper import get_predefined_functions
 
 
 def index(request):
@@ -14,10 +14,7 @@ def models(request):
 
 
 def predefined_functions(request):
-    my_instance = PredefinedFunctions()
-    all_functions = [
-        method for method in dir(my_instance) if callable(getattr(my_instance, method)) and not method.startswith("__")
-    ]
+    all_functions = get_predefined_functions()
     return render(request, 'functions.html', {'all_functions': all_functions})
 
 
