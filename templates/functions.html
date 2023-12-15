@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Predefined Functions</h1>
+    <h1 class="mb-5">Predefined Functions</h1>
     {% for f in all_functions %}
-        {{ f }}
+        <ul class="list-group">
+            <li class="list-group-item"><strong>{{ f}}()</strong></li>
+        </ul>
     {% endfor %}
 {% endblock %}
