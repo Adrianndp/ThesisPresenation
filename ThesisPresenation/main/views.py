@@ -7,10 +7,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-def test(request):
-    return render(request, 'test.html')
-
-
 def models(request):
     app_models = apps.get_app_config("main").get_models()
     data = [{"name": model.__name__, "description": model.__doc__} for model in app_models]
