@@ -50,6 +50,34 @@
         $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
         });
+        function allowDrop(event) {
+        event.preventDefault();
+        }
+
+        function drop(event) {
+        event.preventDefault();
+        var draggedItem = event.dataTransfer.getData("text");
+        var droppedArea = document.getElementById("droppable-area");
+
+        // Create a new element in the droppable area
+        var newItem = document.createElement("div");
+        newItem.className = "list-group-item";
+        newItem.textContent = "Item " + draggedItem;
+
+        // Append the new item to the droppable area
+        droppedArea.appendChild(newItem);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+        var draggableItems = document.querySelectorAll(".draggable-item");
+
+        draggableItems.forEach(function (item) {
+          item.addEventListener("dragstart", function (event) {
+            // Set the data to be transferred during the drag
+            event.dataTransfer.setData("text", event.target.getAttribute("data-value"));
+          });
+        });
+        });
     </script>
 </body>
 </html>
