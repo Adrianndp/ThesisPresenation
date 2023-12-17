@@ -6,7 +6,7 @@
         <h1>{{ model_name }}</h1>
         <ul class="list-group">
             {% for d in data %}
-            <li style="color: #17a2b8" class="list-group-item" data-toggle="tooltip" data-placement="right" title={{ d.field_type }}>
+            <li class="blue_of_title list-group-item" data-toggle="tooltip" data-placement="right" title={{ d.field_type }}>
                 {{ d.field_name }}</li>
             {% endfor %}
         </ul>
