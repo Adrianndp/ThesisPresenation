@@ -7,20 +7,8 @@
     <title>{% block title %}Adrian website{% endblock %}</title>
     <!-- Add Bootstrap CSS link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        main {
-            flex-grow: 1;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <header class="bg-info text-white p-3">
@@ -63,7 +51,7 @@
             // Create a new element in the droppable area
             let newItem = document.createElement("div");
             newItem.className = "list-group-item";
-            newItem.textContent = "Item " + draggedItem;
+            newItem.textContent = draggedItem;
             // Append the new item to the droppable area
             droppedArea.appendChild(newItem);
         }
