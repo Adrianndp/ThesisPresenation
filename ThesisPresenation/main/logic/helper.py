@@ -24,5 +24,5 @@ def get_predefined_functions():
         params_and_types = [(param.name, clean_arg_name(param.annotation)) for param in signature.parameters.values()]
         params_str = ",".join([f"{name}:{str(type_)}" for name, type_ in params_and_types])
         function_str = f"{func_name}({params_str})"
-        all_functions.append(function_str)
+        all_functions.append({"function_str": function_str, "params": ["a", "b", "c"]}) # todo real params
     return all_functions

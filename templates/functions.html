@@ -3,7 +3,7 @@
     <h1 style="color: #17a2b8" class="mb-5">Predefined Functions</h1>
     {% for f in all_functions %}
         <ul class="list-group">
-            <li class="list-group-item function"><strong>{{ f }}</strong></li>
+            <li class="list-group-item function"><strong>{{ f.function_str }}</strong></li>
         </ul>
     {% endfor %}
 {% endblock %}

@@ -2,6 +2,7 @@
     <div class="form-group">
         <label for="exampleFormControlSelect1">Start Time</label>
         <select class="form-control" id="exampleFormControlSelect1">
+            <option>--------</option>
             {% for d in data %}
             <option>{{ d.field_name }}</option>
             {% endfor %}
@@ -9,3 +10,8 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<script>
+document.getElementById("my_form").addEventListener("click", function(event){
+  event.preventDefault()
+});
+</script>
