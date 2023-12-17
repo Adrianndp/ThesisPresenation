@@ -54,6 +54,11 @@
             newItem.textContent = draggedItem;
             // Append the new item to the droppable area
             droppedArea.appendChild(newItem);
+             // Remove the item from its original location
+            let originalItem = document.querySelector('.draggable-item[data-value="' + draggedItem + '"]');
+            if (originalItem) {
+                originalItem.parentNode.removeChild(originalItem);
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
