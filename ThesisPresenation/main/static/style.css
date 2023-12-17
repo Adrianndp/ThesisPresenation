@@ -14,3 +14,13 @@ main {
 .function {
     font-family: "Lucida Console", "Courier New", monospace;
 }
+
+ .draggable-item {
+    cursor: move;
+}
+.droppable-area {
+    min-height: 100px;
+    border: 2px dashed #007bff;
+    margin-top: 20px;
+    padding: 10px;
+}
