@@ -1,14 +1,6 @@
-<form>
+<form id="my_form">
     <div class="form-group">
         <label for="exampleFormControlSelect1">Start Time</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            {% for d in data %}
-            <option>{{ d.field_name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">End time</label>
         <select class="form-control" id="exampleFormControlSelect1">
             {% for d in data %}
             <option>{{ d.field_name }}</option>
