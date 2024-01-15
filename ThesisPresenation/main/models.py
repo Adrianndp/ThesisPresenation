@@ -5,25 +5,13 @@ class Task(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField(default=None, null=True, blank=True)
     deadline = models.DateTimeField()
-    description = models.TextField()
-    __doc__ = "Task using DEADLINE"
+    isTaskExpired = models.BooleanField()
+    __doc__ = "Task with some times to get a boolean"
 
 
 class Employee(models.Model):
-    ROLE_CHOICES = [
-        ('Manager', 'Manager'),
-        ('Junior', 'Junior'),
-        ('Senior', 'Senior'),
-    ]
-
     name = models.CharField(max_length=255)
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
-    __doc__ = "Employee with a role of 3 options"
-
-
-class AnotherTask(models.Model):
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField(default=None, null=True, blank=True)
-    limit = models.DateTimeField()
-    description = models.TextField()
-    __doc__ = "Task using LIMIT"
+    hours_worked = models.IntegerField()
+    total_hours = models.IntegerField()
+    remaining_hours = models.IntegerField()
+    __doc__ = "Employee to do some calculations"

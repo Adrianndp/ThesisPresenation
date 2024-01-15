@@ -28,9 +28,7 @@
     <footer class="bg-dark text-white p-3 mt-auto">
         <!-- Add your footer content or links here -->
     </footer>
-
-    <!-- Add Bootstrap JavaScript dependencies (jQuery and Popper.js) -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- Add Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -57,6 +55,10 @@
 
             // Trigger the modal after dropping the item
             $('#exampleModal').modal('show');
+
+            // Append function clicked
+            // $('#my_form').append('<div id="function_id">' + draggedItem + '</div>');
+            // localStorage['predefinedFunction'] = draggedItem;
 
             // Remove the item from its original location
             let originalItem = document.querySelector('.draggable-item[data-value="' + draggedItem + '"]');
