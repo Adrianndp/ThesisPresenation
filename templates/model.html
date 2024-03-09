@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-{% include 'modal_layout.html' %}
 <div class="row">
     <div class="col-md-6">
         <h1>{{ model_name }}</h1>
@@ -15,7 +14,7 @@
         <h3>Predefined functions</h3>
           <div id="draggable-items" class="list-group">
             {% for f in predefined_functions %}
-            <div class="list-group-item draggable-item function" draggable="true" data-value={{ f.function_str }}>{{ f.function_str }}</div>
+            <div id="{{ f.function_str }}" class="list-group-item draggable-item function" draggable="true" data-value={{ f.function_str }}>{{ f.function_str }}</div>
             {% endfor %}
           </div>
     </div>
@@ -24,4 +23,6 @@
         <div id="droppable-area" class="droppable-area function" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     </div>
 </div>
+{% include 'modal_layout.html' %}
+{% include 'modal_layout2.html' %}
 {% endblock %}

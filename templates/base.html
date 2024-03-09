@@ -11,67 +11,73 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <header class="bg-info text-white p-3">
-        <h1>{% block header %}<a href="/" class="text-decoration-none text-white">Sample Application</a>{% endblock %}</h1>
-        <!-- Add any common elements in the header -->
-    </header>
+<header class="bg-info text-white p-3">
+    <h1>{% block header %}<a href="/" class="text-decoration-none text-white">Sample Application</a>{% endblock %}</h1>
+    <!-- Add any common elements in the header -->
+</header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Add your navigation menu or links here -->
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Add your navigation menu or links here -->
+</nav>
 
-    <main class="container mt-3">
-        {% block content %}{% endblock %}
-        <!-- This is where the content of the child templates will be inserted -->
-    </main>
+<main class="container mt-3">
+    {% block content %}{% endblock %}
+    <!-- This is where the content of the child templates will be inserted -->
+</main>
 
-    <footer class="bg-dark text-white p-3 mt-auto">
-        <!-- Add your footer content or links here -->
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <!-- Add Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
+<footer class="bg-dark text-white p-3 mt-auto">
+    <!-- Add your footer content or links here -->
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<!-- Add Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
-        });
+    });
 
-        function allowDrop(event) {
-            event.preventDefault();
-        }
+    function allowDrop(event) {
+        event.preventDefault();
+    }
 
-        function drop(event) {
-            let draggedItem = event.dataTransfer.getData("text");
-            let droppedArea = document.getElementById("droppable-area");
+    function drop(event) {
+        let draggedItem = event.dataTransfer.getData("text");
+        let draggedItemId = event.dataTransfer.getData("id"); // Get the ID of the dragged item
+        let droppedArea = document.getElementById("droppable-area");
 
-            // Create a new element in the droppable area
-            let newItem = document.createElement("div");
-            newItem.className = "list-group-item";
-            newItem.textContent = draggedItem;
-            // Append the new item to the droppable area
-            droppedArea.appendChild(newItem);
+        // Create a new element in the droppable area
+        let newItem = document.createElement("div");
+        newItem.className = "list-group-item";
+        newItem.textContent = draggedItem;
+        // Append the new item to the droppable area
+        droppedArea.appendChild(newItem);
 
-            // Trigger the modal after dropping the item
+        // Trigger the modal after dropping the item  todo here the if statement
+        let draggedItemIdSplit = draggedItem.split("(")[0];
+        if (draggedItemIdSplit === "is_valid") {
             $('#exampleModal').modal('show');
-
-            // Remove the item from its original location
-            let originalItem = document.querySelector('.draggable-item[data-value="' + draggedItem + '"]');
-            if (originalItem) {
-                originalItem.parentNode.removeChild(originalItem);
-            }
+        } else {
+            $('#exampleModal2').modal('show');
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
+        // Remove the item from its original location
+        let originalItem = document.querySelector('.draggable-item[data-value="' + draggedItem + '"]');
+        if (originalItem) {
+            originalItem.parentNode.removeChild(originalItem);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
         let draggableItems = document.querySelectorAll(".draggable-item");
 
         draggableItems.forEach(function (item) {
-          item.addEventListener("dragstart", function (event) {
+            item.addEventListener("dragstart", function (event) {
                 // Set the data to be transferred during the drag
-                 event.dataTransfer.setData("text", event.target.getAttribute("data-value"));
-                });
+                event.dataTransfer.setData("text", event.target.getAttribute("data-value"));
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>

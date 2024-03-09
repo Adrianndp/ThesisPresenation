@@ -1,0 +1,44 @@
+<form id="my_form2">
+    <div class="form-group">
+        <label for="2exampleFormControlSelect1">field</label>
+        <select class="form-control" id="2exampleFormControlSelect1">
+            <option>--------</option>
+            {% for d in data %}
+            <option>{{ d.field_name }}</option>
+            {% endfor %}
+        </select>
+        <label for="2exampleFormControlSelect3">Result</label>
+        <select class="form-control" id="2exampleFormControlSelect3">
+            <option>--------</option>
+            {% for d in data %}
+            <option>{{ d.field_name }}</option>
+            {% endfor %}
+        </select>
+         <label for="2exampleFormControlSelect4">Type of Function</label>
+        <select class="form-control" id="2exampleFormControlSelect4">
+            <option>--------</option>
+            <option>SingleAssignment</option>
+            <option>RealTimeUpdater</option>
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script>
+
+document.getElementById("my_form2").addEventListener("submit", function(event){
+    event.preventDefault()
+    $('#exampleModal2').modal('hide');
+    let formData = {
+        "resolver": {},
+        "actionType": document.getElementById("2exampleFormControlSelect4").value,
+        "node": "Task",
+        "anyValue": document.getElementById("2exampleFormControlSelect3").value
+    };
+
+    let formDataJson = JSON.stringify(formData, null, 2);
+    // Display form data as JSON
+    alert(`The following Modicio Script will be created: \nScript(\n${formDataJson}\n)`);
+
+});
+</script>
