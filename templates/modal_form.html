@@ -39,5 +39,19 @@
 document.getElementById("my_form").addEventListener("submit", function(event){
     event.preventDefault()
     $('#exampleModal').modal('hide');
+    let formData = {
+        "resolver": {
+        "end_time": "end",
+        "deadline": "deadline",
+        },
+        "actionType": document.getElementById("exampleFormControlSelect4").value,
+        "node": "Task",
+        "anyValue": document.getElementById("exampleFormControlSelect3").value
+    };
+
+    let formDataJson = JSON.stringify(formData, null, 2);
+    // Display form data as JSON
+    alert(`The following Modicio Script will be created: \nScript(\n${formDataJson}\n)`);
+
 });
 </script>

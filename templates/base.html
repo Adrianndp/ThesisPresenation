@@ -42,7 +42,6 @@
         }
 
         function drop(event) {
-            event.preventDefault();
             let draggedItem = event.dataTransfer.getData("text");
             let droppedArea = document.getElementById("droppable-area");
 
@@ -55,10 +54,6 @@
 
             // Trigger the modal after dropping the item
             $('#exampleModal').modal('show');
-
-            // Append function clicked
-            // $('#my_form').append('<div id="function_id">' + draggedItem + '</div>');
-            // localStorage['predefinedFunction'] = draggedItem;
 
             // Remove the item from its original location
             let originalItem = document.querySelector('.draggable-item[data-value="' + draggedItem + '"]');
